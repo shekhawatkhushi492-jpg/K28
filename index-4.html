@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="hi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#10231f">
+<title>NEET Biology – Quick Revision Notes</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Hind:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1d2b2a;--teal:#0f766e;--desk:#e3e6e3;--night:#10231f;--card:#1a342e;--rose:#e8728a;--soft:#f6e7df}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{font-family:Hind,system-ui,sans-serif;background:var(--desk);color:var(--ink);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.v{display:none}.v.on{display:block}
+/* ---------- notes ---------- */
+#bar{position:sticky;top:0;background:var(--teal);color:#fff;padding:10px 16px;font-size:14px;display:flex;justify-content:space-between;z-index:5}
+.pg{background:#fff;max-width:640px;margin:14px auto;padding:34px 30px 26px;min-height:520px;box-shadow:0 1px 6px #0002;display:flex;flex-direction:column}
+.pg h1{font:600 12px Hind;color:var(--teal);border-bottom:2px solid var(--teal);padding-bottom:6px;margin-bottom:22px}
+.pg h2{font:700 24px Georgia,serif;margin-bottom:16px}
+.pg ul{padding-left:20px;font:16px/1.75 Georgia,serif;flex:1}
+.pg li{margin-bottom:10px}
+.pg footer{font-size:12px;color:#6b7a78;display:flex;justify-content:space-between;border-top:1px solid #d5dcda;padding-top:8px;margin-top:18px}
+.pg li.last{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+/* ---------- login ---------- */
+#login{background:var(--night);min-height:100%;color:var(--soft);padding:12vh 28px 40px}
+#login .box{max-width:340px;margin:0 auto}
+#login h2{font:600 46px/1 Caveat,cursive;margin-bottom:8px}
+#login p{opacity:.75;margin-bottom:28px}
+input,textarea{width:100%;font:16px Hind,sans-serif;padding:13px 14px;border:0;border-bottom:2px solid #5d7a73;background:#17302a;color:var(--soft);margin-bottom:14px;border-radius:6px 6px 0 0;outline:0}
+input:focus,textarea:focus{border-color:var(--rose)}
+button{font:600 16px Hind,sans-serif;border:0;border-radius:10px;padding:13px 20px;background:var(--rose);color:#2a0f16;cursor:pointer}
+button.g{background:transparent;color:var(--soft);border:1px solid #5d7a73}
+#err{color:#ffb4a8;min-height:22px;margin-top:10px;font-size:14px}
+/* ---------- app ---------- */
+#app{background:var(--night);color:var(--soft);height:100%;flex-direction:column}
+#app.on{display:flex}
+main{flex:1;overflow:auto;padding:22px 18px}
+nav{display:flex;border-top:1px solid #2c4a43;background:#0c1c18}
+nav button{flex:1;background:none;color:#9db5ad;border-radius:0;padding:14px 0;font-size:15px}
+nav button.on{color:var(--rose);box-shadow:inset 0 2px 0 var(--rose)}
+.tab{display:none}.tab.on{display:block}
+.hi{font:600 40px/1.1 Caveat,cursive;margin-bottom:18px}
+.cnt{background:var(--card);border-radius:14px;padding:22px;margin-bottom:16px}
+.cnt b{font:700 56px/1 Georgia,serif;color:var(--rose);display:block}
+.cnt span{opacity:.75}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+#msgs,#ai{display:flex;flex-direction:column;gap:8px;padding-bottom:10px}
+.m{max-width:80%;padding:9px 13px;border-radius:14px;background:var(--card);white-space:pre-wrap;line-height:1.45}
+.m.me{align-self:flex-end;background:var(--rose);color:#2a0f16}
+.send{display:flex;gap:8px;padding:10px 12px;background:#0c1c18}
+.send input{margin:0;flex:1;border-radius:8px}
+/* ---------- proposal ---------- */
+#prop{position:fixed;inset:0;background:var(--rose);color:#2a0f16;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;z-index:20}
+#prop.on{display:flex}
+#prop h2{font:600 52px/1.05 Caveat,cursive;margin-bottom:12px}
+#prop p{max-width:320px;margin-bottom:28px;line-height:1.5}
+#prop button{background:#2a0f16;color:var(--soft);margin:6px}
+#no{position:relative}
+</style></head>
+<body>
+
+<!-- 1. NOTES (always shown first) -->
+<div id="notes" class="v on"><div id="bar"><span>NEET Biology · Quick Revision</span><span id="pn">Page 1 / 12</span></div><div id="pages"></div></div>
+
+<!-- 2. LOGIN -->
+<div id="login" class="v"><div class="box">
+<h2>Sirf tumhare liye</h2><p>Andar aane ke liye apna email aur password daalo.</p>
+<input id="em" type="email" placeholder="Email" autocomplete="username">
+<input id="pw" type="password" placeholder="Password" autocomplete="current-password">
+<div class="row"><button id="go">Andar aao</button><button class="g" id="back1">Notes pe wapas</button></div>
+<div id="err"></div></div></div>
+
+<!-- 3. APP -->
+<div id="app" class="v">
+<main>
+ <section id="t-home" class="tab on">
+  <div class="hi" id="hi"></div>
+  <div class="cnt"><b id="days">0</b><span id="hrs"></span></div>
+  <div class="row"><button id="op">Ek sawaal hai tumse</button><button class="g" id="back2">Notes pe jao</button></div>
+ </section>
+ <section id="t-chat" class="tab"><div id="msgs"></div></section>
+ <section id="t-ai" class="tab"><div id="ai"><div class="m">NEET ka koi bhi doubt poochho, main simple Hinglish mein samjhaunga.</div></div></section>
+</main>
+<div class="send" id="sendbar" style="display:none"><input id="tx" placeholder="Kuch likho…"><button id="sd">Bhejo</button></div>
+<nav><button data-t="home" class="on">Ghar</button><button data-t="chat">Chat</button><button data-t="ai">Doubt</button></nav>
+</div>
+
+<!-- Proposal -->
+<div id="prop"><h2>Kya tum meri ho jaogi?</h2><p>Padhai ke saath, har din, har mushkil mein. Bas ek jawab chahiye.</p>
+<div><button id="yes">Haan</button><button id="no">Na</button></div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script>
+/* ====== CHANGE THESE ====== */
+const SB_URL='YOUR_SUPABASE_URL', SB_KEY='YOUR_SUPABASE_PUBLISHABLE_KEY';
+const NAME='Jaan', START='2025-01-01T00:00:00';
+/* ========================== */
+let sb;try{sb=supabase.createClient(SB_URL,SB_KEY)}catch(e){console.error('Supabase config error',e)}
+const $=s=>document.querySelector(s);
+const show=id=>{document.querySelectorAll('.v').forEach(e=>e.classList.remove('on'));$('#'+id).classList.add('on')};
+
+/* ---- notes content ---- */
+const P=[
+["Cell: The Unit of Life",["Cell theory was given by Schleiden and Schwann; Virchow added that every cell arises from a pre-existing cell.","Mitochondria have a double membrane and are the main site of ATP synthesis.","Ribosomes are 70S in prokaryotes and 80S in eukaryotes.","The plant cell wall is made of cellulose, the fungal cell wall of chitin."]],
+["Biomolecules",["Enzymes lower the activation energy of a reaction; most are proteins.","A competitive inhibitor resembles the substrate and competes for the active site.","Km is the substrate concentration at which the rate is half of Vmax.","The primary structure of a protein is its amino acid sequence."]],
+["Cell Cycle and Division",["Interphase has G1, S (DNA replication) and G2 phases.","Meiosis I is reductional; crossing over happens in pachytene.","Chromosomes line up at the equatorial plate in metaphase.","In plant cells, cytokinesis occurs by cell plate formation."]],
+["Photosynthesis",["Light reactions occur in the thylakoids; the Calvin cycle occurs in the stroma.","C4 plants show Kranz anatomy and fix CO₂ first with PEP carboxylase.","RuBisCO is the most abundant enzyme on Earth.","In the Z-scheme, PS II (P680) passes electrons to PS I (P700)."]],
+["Respiration in Plants",["Glycolysis occurs in the cytoplasm with a net gain of 2 ATP.","The Krebs cycle runs in the mitochondrial matrix.","The electron transport system sits on the inner mitochondrial membrane; oxygen is the final acceptor.","One glucose yields about 30 to 32 ATP in eukaryotes."]],
+["Body Fluids and Circulation",["The SA node is the pacemaker of the heart.","Cardiac output = heart rate × stroke volume.","On an ECG, the P wave is atrial depolarisation and the QRS complex is ventricular depolarisation.","The T wave represents ventricular repolarisation."]],
+["Principles of Inheritance",["Mendel’s laws: dominance, segregation and independent assortment.","A test cross uses a homozygous recessive parent.","The classic dihybrid phenotypic ratio is 9:3:3:1.","Down syndrome is trisomy 21; Turner syndrome is 45, XO."]],
+["Molecular Basis of Inheritance",["DNA replication is semiconservative (Meselson and Stahl).","RNA polymerase uses the template strand to build mRNA in the 5′ to 3′ direction.","The genetic code is triplet, degenerate and nearly universal.","In the lac operon, lactose acts as the inducer."]],
+["Evolution",["Hardy–Weinberg equation: p² + 2pq + q² = 1.","Homologous organs show divergent evolution; analogous organs show convergent evolution.","Miller’s experiment produced amino acids from simple gases and electric sparks.","Darwin’s finches of the Galápagos are a classic example of adaptive radiation."]],
+["Ecology",["Pyramids of energy are always upright.","Lindeman’s 10 percent law: about 10 percent of energy passes to the next trophic level.","Net primary productivity = gross primary productivity minus respiration.","The Western Ghats and the Himalaya are biodiversity hotspots in India."]],
+["Biotechnology: Principles",["Restriction enzymes cut DNA at specific palindromic sequences.","EcoRI cuts between G and A in the sequence GAATTC.","PCR has three steps: denaturation, annealing and extension with Taq polymerase.","Bt toxin comes from Bacillus thuringiensis and is used for insect resistance."]],
+["Human Reproduction",["Spermatogenesis takes place in the seminiferous tubules; Sertoli cells nourish the sperm.","A surge in LH triggers ovulation.","The blastocyst stage implants in the uterine wall.","hCG from the placenta maintains the corpus luteum in early pregnancy."]]
+];
+$('#pages').innerHTML=P.map((p,i)=>`<article class="pg" data-i="${i+1}"><h1>NEET Biology · Chapter ${i+1}</h1><h2>${p[0]}</h2><ul>${p[1].map((x,j)=>`<li${i==9&&j==3?' class="last" id="lock"':''}>${x}</li>`).join('')}</ul><footer><span>Quick Revision Notes</span><span>Page ${i+1}</span></footer></article>`).join('');
+new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)$('#pn').textContent='Page '+e.target.dataset.i+' / 12'}),{threshold:.5}).observe&&document.querySelectorAll('.pg').forEach(p=>new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)$('#pn').textContent='Page '+p.dataset.i+' / 12'}),{threshold:.5}).observe(p));
+
+/* ---- secret long press on last line of page 10 (2.2 s) ---- */
+let timer;const L=$('#lock');
+L.addEventListener('pointerdown',()=>{timer=setTimeout(enter,2200)});
+['pointerup','pointerleave','pointercancel'].forEach(e=>L.addEventListener(e,()=>clearTimeout(timer)));
+L.addEventListener('contextmenu',e=>e.preventDefault());
+async function enter(){const{data}=await sb.auth.getSession();data.session?openApp(data.session.user.id):show('login')}
+
+/* ---- login ---- */
+$('#go').onclick=async()=>{$('#err').textContent='';
+ const{data,error}=await sb.auth.signInWithPassword({email:$('#em').value.trim(),password:$('#pw').value});
+ if(error)$('#err').textContent='Email ya password galat hai.';else openApp(data.user.id)};
+$('#back1').onclick=$('#back2').onclick=()=>show('notes');
+
+/* ---- app ---- */
+let me,started=false;
+function openApp(id){me=id;show('app');$('#hi').textContent='Hi '+NAME+' 💗';tick();if(!started){started=true;initChat()}}
+function tick(){const d=Date.now()-new Date(START);$('#days').textContent=Math.floor(d/864e5)+' din';$('#hrs').textContent='saath, '+Math.floor(d/36e5)+' ghante se zyada';}
+setInterval(tick,60000);
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{
+ document.querySelectorAll('nav button,.tab').forEach(e=>e.classList.remove('on'));
+ b.classList.add('on');$('#t-'+b.dataset.t).classList.add('on');
+ $('#sendbar').style.display=b.dataset.t=='home'?'none':'flex';
+ $('#tx').placeholder=b.dataset.t=='ai'?'Apna doubt likho…':'Kuch likho…';
+ $('main').scrollTop=1e9});
+
+function bub(box,txt,mine){const d=document.createElement('div');d.className='m'+(mine?' me':'');d.textContent=txt;$(box).appendChild(d);$('main').scrollTop=1e9;return d}
+async function initChat(){
+ const{data}=await sb.from('messages').select('*').order('created_at').limit(200);
+ (data||[]).forEach(m=>bub('#msgs',m.body,m.sender===me));
+ sb.channel('chat').on('postgres_changes',{event:'INSERT',schema:'public',table:'messages'},p=>bub('#msgs',p.new.body,p.new.sender===me)).subscribe()}
+async function send(){
+ const t=$('#tx').value.trim();if(!t)return;$('#tx').value='';
+ if($('#t-ai').classList.contains('on')){
+  bub('#ai',t,true);const w=bub('#ai','Soch rahi hoon…');
+  const{data,error}=await sb.functions.invoke('ask-ai',{body:{q:t}});
+  w.textContent=error?'Abhi jawab nahi aa paya, thodi der baad try karo.':data.answer
+ }else{await sb.from('messages').insert({body:t})}}
+$('#sd').onclick=send;$('#tx').addEventListener('keydown',e=>{if(e.key==='Enter')send()});
+
+/* ---- proposal ---- */
+$('#op').onclick=()=>$('#prop').classList.add('on');
+$('#yes').onclick=()=>{$('#prop h2').textContent='Pata tha 💗';$('#prop p').textContent='Ab se har din tumhare saath. Chalo, padhai bhi karni hai.';$('#no').style.display='none';$('#yes').textContent='Wapas chalo';$('#yes').onclick=()=>$('#prop').classList.remove('on')};
+const no=$('#no');
+const run=()=>{no.style.position='fixed';no.style.left=Math.random()*(innerWidth-90)+'px';no.style.top=Math.random()*(innerHeight-60)+'px'};
+no.addEventListener('pointerenter',run);no.addEventListener('pointerdown',e=>{e.preventDefault();run()});
+</script>
+</body></html>
